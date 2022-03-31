@@ -66,6 +66,7 @@ body {
 /* produto */
 .produto {
   display: flex;
+  width: 172px;
   flex-direction: column;
   padding: 18px 14px 14px 14px;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
@@ -103,13 +104,28 @@ body {
   margin-top: 4px;
 }
 
+.produto-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 5px;
+}
+
+.produto-bottom ion-icon {
+  font-size: 19px;
+  color: #32b72f;
+}
+
+.icone-check {
+  display: none;
+}
+
 .produto-preco {
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   color: #000;
-
-  margin-top: 5px;
 }
 
 section > h3 {
@@ -216,6 +232,10 @@ section > h3 {
 .produto.selecionado {
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
     inset 0px 0px 0px 5px #32b72f;
+}
+
+.produto.selecionado ion-icon {
+  display: block;
 }
 
 /* modal */

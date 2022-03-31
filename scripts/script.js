@@ -40,7 +40,9 @@ function adicionarPratoCarrinho(element) {
   pratoSelecionado = true;
 
   const nome = element.children[1].textContent;
-  const preco = Number(element.children[3].attributes.value.value);
+  const preco = Number(
+    element.querySelector('.produto-preco').attributes.value.value
+  );
 
   pratoPedido = { nome, preco };
 
@@ -54,7 +56,9 @@ function adicionarBebidaCarrinho(element) {
   bebidaSelecionado = true;
 
   const nome = element.children[1].textContent;
-  const preco = Number(element.children[3].attributes.value.value);
+  const preco = Number(
+    element.querySelector('.produto-preco').attributes.value.value
+  );
 
   bebidaPedido = { nome, preco };
 
@@ -70,7 +74,9 @@ function adicionarSobremesaCarrinho(element) {
   sobremesaSelecionado = true;
 
   const nome = element.children[1].textContent;
-  const preco = Number(element.children[3].attributes.value.value);
+  const preco = Number(
+    element.querySelector('.produto-preco').attributes.value.value
+  );
 
   sobremesaPedido = { nome, preco };
 
