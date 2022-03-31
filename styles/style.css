@@ -206,7 +206,7 @@ section > h3 {
   border: none;
 }
 
-.btn.btn-finalizar-pedido {
+.btn.btn-fechar-pedido {
   background-color: #32b72f;
 
   cursor: pointer;
@@ -216,4 +216,110 @@ section > h3 {
 .produto.selecionado {
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25),
     inset 0px 0px 0px 5px #32b72f;
+}
+
+/* modal */
+.modal-container {
+  display: none;
+}
+
+.modal-container.modal-aberto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container.modal-aberto .modal {
+  background-color: #50d074;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 20px;
+  padding: 21px 25px 0 25px;
+}
+
+.modal-container.modal-aberto .modal p {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #fff;
+}
+
+.modal-confirme-pedido {
+  margin-bottom: 28px;
+}
+
+.modal-container.modal-aberto .modal .modal-produto {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.018em;
+  color: #fff;
+}
+
+.modal-container.modal-aberto .modal .total-pedido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  letter-spacing: 0.018em;
+
+  margin-bottom: 24px;
+
+  text-transform: uppercase;
+}
+
+/* botao modal */
+.btn-finalizar-pedido {
+  background-color: #fff;
+  color: #50d074;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.018em;
+
+  cursor: pointer;
+}
+
+.btn-cancelar-pedido {
+  background: none;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.018em;
+
+  cursor: pointer;
 }

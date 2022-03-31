@@ -80,9 +80,18 @@ function trocarBotao() {
     const botao = document.getElementById('fechar-pedido');
 
     botao.innerText = 'Fechar pedido';
-    botao.classList.add('btn-finalizar-pedido');
+    botao.classList.add('btn-fechar-pedido');
     botao.disabled = false;
   } else {
     return;
   }
+}
+
+function fecharPedido() {
+  abrirModal();
+}
+
+function abrirModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.add('modal-aberto');
 }
