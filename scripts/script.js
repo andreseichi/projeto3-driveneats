@@ -1,17 +1,17 @@
 // pratos
 let pratosElement = document.querySelectorAll('.prato');
 let pratoSelecionado = false;
-let pratoValor = {};
+let pratoPedido = {};
 
 // bebidas
 let bebidasElement = document.querySelectorAll('.bebida');
 let bebidaSelecionado = false;
-let bebidaValor = {};
+let bebidaPedido = {};
 
 // sobremesas
 let sobremesasElement = document.querySelectorAll('.sobremesa');
 let sobremesaSelecionado = false;
-let sobremesaValor = {};
+let sobremesaPedido = {};
 
 // Adicionar seus respectivos eventos de click
 pratosElement.forEach(adicionarEventoClickPratos);
@@ -19,19 +19,19 @@ bebidasElement.forEach(adicionarEventoClickBebidas);
 sobremesasElement.forEach(adicionarEventoClickSobremesas);
 
 function adicionarEventoClickPratos(element) {
-  element.addEventListener('click', () => AdicionarPratoCarrinho(element));
+  element.addEventListener('click', () => adicionarPratoCarrinho(element));
 }
 
 function adicionarEventoClickBebidas(element) {
-  element.addEventListener('click', () => AdicionarBebidaCarrinho(element));
+  element.addEventListener('click', () => adicionarBebidaCarrinho(element));
 }
 
 function adicionarEventoClickSobremesas(element) {
-  element.addEventListener('click', () => AdicionarSobremesaCarrinho(element));
+  element.addEventListener('click', () => adicionarSobremesaCarrinho(element));
 }
 
 // Funções de adicionar os produtos no carrinho
-function AdicionarPratoCarrinho(element) {
+function adicionarPratoCarrinho(element) {
   pratosElement.forEach((prato) => prato.classList.remove('selecionado'));
 
   element.classList.add('selecionado');
@@ -40,11 +40,10 @@ function AdicionarPratoCarrinho(element) {
   const nome = element.children[1].textContent;
   const preco = Number(element.children[3].attributes.value.value);
 
-  pratoValor = { nome, preco };
-  console.log(pratoValor);
+  pratoPedido = { nome, preco };
 }
 
-function AdicionarBebidaCarrinho(element) {
+function adicionarBebidaCarrinho(element) {
   bebidasElement.forEach((bebida) => bebida.classList.remove('selecionado'));
 
   element.classList.add('selecionado');
@@ -53,11 +52,10 @@ function AdicionarBebidaCarrinho(element) {
   const nome = element.children[1].textContent;
   const preco = Number(element.children[3].attributes.value.value);
 
-  bebidaValor = { nome, preco };
-  console.log(bebidaValor);
+  bebidaPedido = { nome, preco };
 }
 
-function AdicionarSobremesaCarrinho(element) {
+function adicionarSobremesaCarrinho(element) {
   sobremesasElement.forEach((sobremesa) =>
     sobremesa.classList.remove('selecionado')
   );
@@ -68,6 +66,5 @@ function AdicionarSobremesaCarrinho(element) {
   const nome = element.children[1].textContent;
   const preco = Number(element.children[3].attributes.value.value);
 
-  sobremesaValor = { nome, preco };
-  console.log(sobremesaValor);
+  sobremesaPedido = { nome, preco };
 }
