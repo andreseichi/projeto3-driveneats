@@ -41,6 +41,8 @@ function adicionarPratoCarrinho(element) {
   const preco = Number(element.children[3].attributes.value.value);
 
   pratoPedido = { nome, preco };
+
+  trocarBotao();
 }
 
 function adicionarBebidaCarrinho(element) {
@@ -53,6 +55,8 @@ function adicionarBebidaCarrinho(element) {
   const preco = Number(element.children[3].attributes.value.value);
 
   bebidaPedido = { nome, preco };
+
+  trocarBotao();
 }
 
 function adicionarSobremesaCarrinho(element) {
@@ -67,4 +71,18 @@ function adicionarSobremesaCarrinho(element) {
   const preco = Number(element.children[3].attributes.value.value);
 
   sobremesaPedido = { nome, preco };
+
+  trocarBotao();
+}
+
+function trocarBotao() {
+  if (pratoSelecionado && bebidaSelecionado && sobremesaSelecionado) {
+    const botao = document.getElementById('fechar-pedido');
+
+    botao.innerText = 'Fechar pedido';
+    botao.classList.add('btn-finalizar-pedido');
+    botao.disabled = false;
+  } else {
+    return;
+  }
 }

@@ -200,13 +200,16 @@ section > h3 {
   border-radius: 50px;
 
   width: 100%;
-  padding: 6px 70px;
+  height: 61px;
+  padding: 0 70px;
 
   border: none;
 }
 
 .btn.btn-finalizar-pedido {
   background-color: #32b72f;
+
+  cursor: pointer;
 }
 
 /* produto selecionado */
