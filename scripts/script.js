@@ -13,6 +13,8 @@ let sobremesasElement = document.querySelectorAll('.sobremesa');
 let sobremesaSelecionado = false;
 let sobremesaPedido = {};
 
+let valorPedidoTotal = 0;
+
 // Adicionar seus respectivos eventos de click
 pratosElement.forEach(adicionarEventoClickPratos);
 bebidasElement.forEach(adicionarEventoClickBebidas);
@@ -87,11 +89,71 @@ function trocarBotao() {
   }
 }
 
+// fechar pedido e abrir modal de confirmação
 function fecharPedido() {
   abrirModal();
 }
 
+function confirmarPedido() {
+  const nome = prompt('Qual seu nome?');
+  const endereco = prompt('Qual endereço de entrega?');
+
+  let mensagem = encodeURIComponent(`Olá, gostaria de fazer o pedido:
+  - Prato: ${pratoPedido.nome}
+  - Bebida: ${bebidaPedido.nome}
+  - Sobremesa: ${sobremesaPedido.nome}
+  Total: R$ ${valorPedidoTotal.toFixed(2)}
+  
+  Nome: ${nome}
+  Endereço: ${endereco}`);
+
+  console.log(mensagem);
+
+  window.open(`https://wa.me/5591989387279?text=${mensagem}`);
+}
+
+// modal
 function abrirModal() {
   const modal = document.getElementById('modal');
   modal.classList.add('modal-aberto');
+
+  // prato
+  const pratoElement = document.getElementById('modal-prato');
+  const pratoNomeElement = pratoElement.children[0];
+  const pratoprecoElement = pratoElement.children[1];
+
+  pratoNomeElement.textContent = pratoPedido.nome;
+  pratoprecoElement.textContent = pratoPedido.preco.toFixed(2);
+  valorPedidoTotal += pratoPedido.preco;
+
+  // bebidas
+  const bebidaElement = document.getElementById('modal-bebida');
+  const bebidaNomeElement = bebidaElement.children[0];
+  const bebidaprecoElement = bebidaElement.children[1];
+
+  bebidaNomeElement.textContent = bebidaPedido.nome;
+  bebidaprecoElement.textContent = bebidaPedido.preco.toFixed(2);
+  valorPedidoTotal += bebidaPedido.preco;
+
+  // prato
+  const sobremesaElement = document.getElementById('modal-sobremesa');
+  const sobremesaNomeElement = sobremesaElement.children[0];
+  const sobremesaprecoElement = sobremesaElement.children[1];
+
+  sobremesaNomeElement.textContent = sobremesaPedido.nome;
+  sobremesaprecoElement.textContent = sobremesaPedido.preco.toFixed(2);
+  valorPedidoTotal += sobremesaPedido.preco;
+
+  // total
+  const totalPedidoElement = document.getElementById('modal-total-pedido');
+  const valorTotalElement = totalPedidoElement.children[1];
+
+  valorTotalElement.textContent = 'R$ ' + valorPedidoTotal.toFixed(2);
+}
+
+function fecharModal() {
+  const modal = document.getElementById('modal');
+  modal.classList.remove('modal-aberto');
+
+  valorPedidoTotal = 0;
 }

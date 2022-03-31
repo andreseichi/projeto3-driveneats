@@ -199,28 +199,32 @@
       <div class="modal">
         <p class="modal-confirme-pedido">Confirme seu pedido</p>
 
-        <div class="modal-prato modal-produto">
-          <span>Frango</span>
-          <span>14.90</span>
+        <div class="modal-prato modal-produto" id="modal-prato">
+          <span class="modal-prato-nome">Frango</span>
+          <span class="modal-prato-preco">14.90</span>
         </div>
 
-        <div class="modal-bebida modal-produto">
+        <div class="modal-bebida modal-produto" id="modal-bebida">
           <span>coca</span>
           <span>5,90</span>
         </div>
 
-        <div class="modal-sobremesa modal-produto">
+        <div class="modal-sobremesa modal-produto" id="modal-sobremesa">
           <span>pudim</span>
           <span>7,90</span>
         </div>
 
-        <div class="total-pedido">
+        <div class="total-pedido" id="modal-total-pedido">
           <p>Total</p>
           <p>R$ 27,90</p>
         </div>
 
-        <div class="btn btn-finalizar-pedido">Tudo certo, pode pedir!</div>
-        <div class="btn btn-cancelar-pedido">Cancelar</div>
+        <div class="btn btn-finalizar-pedido" onclick="confirmarPedido()">
+          Tudo certo, pode pedir!
+        </div>
+        <div class="btn btn-cancelar-pedido" onclick="fecharModal()">
+          Cancelar
+        </div>
       </div>
     </div>
 
