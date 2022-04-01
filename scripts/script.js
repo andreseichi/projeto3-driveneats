@@ -39,7 +39,7 @@ function adicionarPratoCarrinho(element) {
   element.classList.add('selecionado');
   pratoSelecionado = true;
 
-  const nome = element.children[1].textContent;
+  const nome = element.querySelector('.produto-nome').textContent;
   const preco = Number(
     element.querySelector('.produto-preco').attributes.value.value
   );
@@ -55,7 +55,7 @@ function adicionarBebidaCarrinho(element) {
   element.classList.add('selecionado');
   bebidaSelecionado = true;
 
-  const nome = element.children[1].textContent;
+  const nome = element.querySelector('.produto-nome').textContent;
   const preco = Number(
     element.querySelector('.produto-preco').attributes.value.value
   );
@@ -73,7 +73,7 @@ function adicionarSobremesaCarrinho(element) {
   element.classList.add('selecionado');
   sobremesaSelecionado = true;
 
-  const nome = element.children[1].textContent;
+  const nome = element.querySelector('.produto-nome').textContent;
   const preco = Number(
     element.querySelector('.produto-preco').attributes.value.value
   );
@@ -112,8 +112,6 @@ function confirmarPedido() {
   
   Nome: ${nome}
   Endereço: ${endereco}`);
-
-  console.log(mensagem);
 
   window.open(`https://wa.me/5591989387279?text=${mensagem}`);
 }
