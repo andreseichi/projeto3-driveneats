@@ -84,19 +84,24 @@ function adicionarSobremesaCarrinho(element) {
 }
 
 function trocarBotao() {
+  // se 3 produtos selecionados, troca o botão e habilita
+  const botao = document.getElementById('fechar-pedido');
   if (pratoSelecionado && bebidaSelecionado && sobremesaSelecionado) {
-    const botao = document.getElementById('fechar-pedido');
-
     botao.innerText = 'Fechar pedido';
     botao.classList.add('btn-fechar-pedido');
-    botao.disabled = false;
+    botao.classList.remove('disabled');
   } else {
+    botao.classList.add('disabled');
     return;
   }
 }
 
 // fechar pedido e abrir modal de confirmação
-function fecharPedido() {
+function fecharPedido(botao) {
+  if (botao.classList.contains('disabled')) {
+    return;
+  }
+  botao.classList.remove('disabled');
   abrirModal();
 }
 
