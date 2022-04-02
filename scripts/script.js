@@ -109,16 +109,18 @@ function confirmarPedido() {
   const nome = prompt('Qual seu nome?');
   const endereco = prompt('Qual endereço de entrega?');
 
-  let mensagem = encodeURIComponent(`Olá, gostaria de fazer o pedido:
-  - Prato: ${pratoPedido.nome}
-  - Bebida: ${bebidaPedido.nome}
-  - Sobremesa: ${sobremesaPedido.nome}
-  Total: R$ ${valorPedidoTotal.toFixed(2)}
+  const mensagem = `Olá, gostaria de fazer o pedido:
+- Prato: ${pratoPedido.nome}
+- Bebida: ${bebidaPedido.nome}
+- Sobremesa: ${sobremesaPedido.nome}
+Total: R$ ${valorPedidoTotal.toFixed(2)}
   
-  Nome: ${nome}
-  Endereço: ${endereco}`);
+Nome: ${nome}
+Endereço: ${endereco}`;
 
-  window.open(`https://wa.me/5591989387279?text=${mensagem}`);
+  const mensagemFormatada = encodeURIComponent(mensagem);
+
+  window.open(`https://wa.me/5591989387279?text=${mensagemFormatada}`);
 }
 
 // modal
@@ -131,8 +133,10 @@ function abrirModal() {
   const pratoNomeElement = pratoElement.children[0];
   const pratoprecoElement = pratoElement.children[1];
 
+  const precoPratoFormatado = pratoPedido.preco.toFixed(2).replace('.', ',');
+
   pratoNomeElement.textContent = pratoPedido.nome;
-  pratoprecoElement.textContent = pratoPedido.preco.toFixed(2);
+  pratoprecoElement.textContent = precoPratoFormatado;
   valorPedidoTotal += pratoPedido.preco;
 
   // bebidas
@@ -140,8 +144,10 @@ function abrirModal() {
   const bebidaNomeElement = bebidaElement.children[0];
   const bebidaprecoElement = bebidaElement.children[1];
 
+  const precoBebidaFormatado = bebidaPedido.preco.toFixed(2).replace('.', ',');
+
   bebidaNomeElement.textContent = bebidaPedido.nome;
-  bebidaprecoElement.textContent = bebidaPedido.preco.toFixed(2);
+  bebidaprecoElement.textContent = precoBebidaFormatado;
   valorPedidoTotal += bebidaPedido.preco;
 
   // prato
@@ -149,15 +155,21 @@ function abrirModal() {
   const sobremesaNomeElement = sobremesaElement.children[0];
   const sobremesaprecoElement = sobremesaElement.children[1];
 
+  const precoSobremesaFormatado = sobremesaPedido.preco
+    .toFixed(2)
+    .replace('.', ',');
+
   sobremesaNomeElement.textContent = sobremesaPedido.nome;
-  sobremesaprecoElement.textContent = sobremesaPedido.preco.toFixed(2);
+  sobremesaprecoElement.textContent = precoSobremesaFormatado;
   valorPedidoTotal += sobremesaPedido.preco;
 
   // total
   const totalPedidoElement = document.getElementById('modal-total-pedido');
   const valorTotalElement = totalPedidoElement.children[1];
 
-  valorTotalElement.textContent = 'R$ ' + valorPedidoTotal.toFixed(2);
+  const precoTotalFormatado = valorPedidoTotal.toFixed(2).replace('.', ',');
+
+  valorTotalElement.textContent = 'R$ ' + precoTotalFormatado;
 }
 
 function fecharModal() {
