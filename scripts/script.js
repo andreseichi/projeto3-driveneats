@@ -120,7 +120,7 @@ Endereço: ${endereco}`;
 
   const mensagemFormatada = encodeURIComponent(mensagem);
 
-  window.open(`https://wa.me/5591989387279?text=${mensagemFormatada}`);
+  window.open(`https://wa.me/5591980448461?text=${mensagemFormatada}`);
 }
 
 // modal
